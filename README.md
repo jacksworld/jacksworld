@@ -1,68 +1,56 @@
-# 🌐 多语言个人作品集 (中英法三语版)
+# 个人主页 | 简历模板
 
-> **默认语言：** 英语 (English)
-> **包含语言：** 英语 (EN), 法语 (FR), 中文 (CN)
+这是一份包含完整 HTML 结构、CSS 样式和 JavaScript 交互功能的个人主页代码。您可以将其保存为 `index.html` 并在浏览器中直接查看效果。
 
----
-
-## 🚀 核心功能特点
-
-1.  **自动默认英文**：刷新页面时，所有内容默认为英文。
-2.  **一键切换**：导航栏右上角设有语言切换按钮。
-3.  **主题自适应**：
-    *   **英语 (EN)**：默认深色风格。
-    *   **法语 (FR)**：自动切换深色主题。
-    *   **中文 (CN)**：自动切换浅色主题（适合中文阅读）。
-4.  **无感体验**：所有文本（导航、标题、描述）实时切换，无需刷新。
-
----
-
-## 💻 完整网页代码
-
-### 1. HTML 结构 (`index.html`)
+## 📄 完整代码
 
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <!-- 样式部分放在 CSS 块中 -->
+    <title>我的个人主页</title>
     <style>
-        /* --- 基础变量 --- */
-        :root {
-            --bg-color: #f4f4f4; /* 浅色背景 */
-            --text-color: #333;  /* 深色文字 */
-            --card-bg: #ffffff;
-            --accent-color: #007bff;
-            --nav-bg: rgba(255, 255, 255, 0.95);
-        }
+        /* 基础样式 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        
+        /* 导航栏 */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+        .logo { font-size: 24px; font-weight: bold; color: #222; }
+        .nav-links { list-style: none; display: flex; gap: 20px; }
+        .nav-links a { text-decoration: none; color: #333; transition: 0.3s; }
+        .nav-links a:hover { color: #007bff; }
+        .menu-toggle { display: none; font-size: 24px; cursor: pointer; }
+        
+        /* Hero 区域 */
+        .hero { height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; background: #f4f4f4; }
+        .hero h1 { font-size: 48px; margin: 10px 0; }
+        .hero h2 { font-size: 24px; color: #666; }
+        .btn { padding: 10px 20px; background: #007bff; color: white; text-decoration: none; border-radius: 5px; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
+        /* 通用样式 */
+        section { padding: 60px 0; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; }
 
-        /* --- 语言切换按钮 --- */
-        .lang-switcher {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1000;
-        }
+        /* 关于我 */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .skills ul { list-style: none; }
+        .skills li { margin-bottom: 10px; padding-left: 20px; border-left: 3px solid #007bff; }
 
-        .lang-btn {
-            background: transparent;
-            border: 1px solid #333;
-            color: #333;
-            padding: 5px 10px;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
+        /* 经历时间线 */
+        .timeline { max-width: 800px; margin: 0 auto; }
+        .card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .date { color: #999; font-size: 14px; display: block; margin-bottom: 10px; }
+
+        /* 页脚 */
+        footer { background: #222; color: white; padding: 40px 0; text-align: center; }
+        footer p { margin: 5px 0; }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+            .about-grid { grid-template-columns: 1fr;
